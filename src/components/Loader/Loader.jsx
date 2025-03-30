@@ -1,10 +1,10 @@
-import { InfinitySpin } from 'react-loader-spinner';
 import css from './Loader.module.css';
+import BounceLoader from 'react-spinners/BounceLoader';
 
 const Loader = () => {
   return (
     <div className={css.backdrop}>
-      <InfinitySpin
+      <BounceLoader
         visible={true}
         width="200"
         color="#4fa94d"

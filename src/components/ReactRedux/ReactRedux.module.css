@@ -1,0 +1,11 @@
+.button {
+  width: 100px;
+  padding: 5px 10px;
+  border: 1px solid #888;
+  margin-bottom: 8px;
+  border-radius: 3px;
+}
+.context {
+  border: 1px solid #888;
+  margin-bottom: 12px;
+}
