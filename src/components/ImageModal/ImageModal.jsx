@@ -1,7 +1,8 @@
 import css from './ImageModal.module.css';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-export default function ImageModal({ children, onClose, isOpen }) {
+export default function ImageModal({ isOpen, closeModal, children }) {
   const customStyles = {
     content: {
       top: '50%',
@@ -12,19 +13,18 @@ export default function ImageModal({ children, onClose, isOpen }) {
       transform: 'translate(-50%, -50%)',
     },
   };
+
   return (
     <>
-      <div>
-        <Modal
-          isOpen={isOpen}
-          onRequestClose={onClose}
-          ariaHideApp={false}
-          style={customStyles}
-        >
-          <button onClick={onClose}>close</button>
-          {children}
-        </Modal>
-      </div>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        ariaHideApp={true}
+        style={customStyles}
+      >
+        <button onClick={closeModal}>close</button>
+        {children}
+      </Modal>
     </>
   );
 }

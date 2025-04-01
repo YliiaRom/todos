@@ -18,7 +18,7 @@ const Photos = () => {
 
   const [visible, setVisible] = useState(false);
   //modal
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectImage, setSelectImage] = useState('');
 
   const getQuery = inputValue => {
@@ -67,13 +67,12 @@ const Photos = () => {
     setPage(page + 1);
   };
   //modal
-  const openModal = urlModal => {
-    console.log('modal');
-    setModalOpen(true);
-    setSelectImage(urlModal);
+  const modalIsOpen = value => {
+    setIsOpen(true);
+    setSelectImage(value);
   };
   const closeModal = () => {
-    setModalOpen(false);
+    setIsOpen(false);
     setSelectImage('');
   };
   return (
@@ -100,9 +99,13 @@ const Photos = () => {
       {photos.length > 0 && (
         <>
           {/* Модалка при onClick - до самого последнего элемента */}
-          <PhotosGallery photos={photos} onImageClick={openModal} />
-          <ImageModal isOpen={modalOpen} onClose={closeModal}>
-            <img src={selectImage} alt="Select" style={{ maxWidth: '100%' }} />
+          <PhotosGallery photos={photos} onImageClick={modalIsOpen} />
+          <ImageModal closeModal={closeModal} isOpen={isOpen}>
+            <img
+              src={selectImage}
+              alt="selected"
+              style={{ maxWidth: '100%' }}
+            />
           </ImageModal>
         </>
       )}

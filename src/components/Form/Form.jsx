@@ -1,43 +1,45 @@
 import { FiSearch } from 'react-icons/fi';
 
 import style from './Form.module.css';
-import { useSelector } from 'react-redux';
+
 import { useState } from 'react';
 
 const Form = ({ onSubmit }) => {
-  const [query, setQuery] = useState('');
   //query
   // className='style.input'
   //handleSubmit
   //handleChange
-  const handleChenge = e => {
-    return setQuery(e.target.value);
+  const [query, setQuery] = useState('');
+
+  const handleInput = event => {
+    return setQuery(event.target.value);
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     if (!query.trim()) {
-      return;
+      return alert(' NO valide velue! ');
     }
     onSubmit(query);
     setQuery('');
   };
+
   return (
     <>
       <p>передати параметри при onSubmit</p>
-      <form className={style.form} onSubmit={handleChenge}>
+      <form className={style.form} onSubmit={handleSubmit}>
         <button className={style.button} type="submit">
           <FiSearch size="16px" />
         </button>
 
         <input
-          onChange={handleSubmit}
+          onChange={handleInput}
           className={style.input}
-          type="text"
-          name="query"
+          placeholder="What do you want to write?"
+          name="search"
           value={query}
-          autoFocus
           required
-          placeholder="write"
+          autoFocus
         />
       </form>
     </>
