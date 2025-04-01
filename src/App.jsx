@@ -14,6 +14,7 @@ import SearchParam from './tabs/SearchParam';
 import { createContext } from 'react';
 import Redux from './tabs/Redux';
 import StyleBox from './components/StyleBox/StyleBox';
+import Filter from './tabs/Filter';
 
 export const LangContext = createContext();
 
@@ -29,6 +30,7 @@ export const App = () => {
               <Tab>RafBasics</Tab>
               <Tab>Player</Tab>
               <Tab>Timer</Tab>
+              <Tab>Filter</Tab>
               <Tab>AppHeader</Tab>
               <Tab>LangMassage</Tab>
               <Tab>SearchParam</Tab>
@@ -50,6 +52,9 @@ export const App = () => {
             </TabPanel>
             <TabPanel>
               <Timer />
+            </TabPanel>
+            <TabPanel>
+              <Filter />
             </TabPanel>
             <TabPanel>
               <AppHeader />

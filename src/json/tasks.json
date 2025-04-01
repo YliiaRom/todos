@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "topic": "Reeder - Найбыстрый доступ до элемента массива = ИНДЕКС",
+    "text": "const [valueItemIndex, setvalueItemIndex] = useState(0); Для отображения по индексу из массива взять объект-  const currentArticle = items[valueItemIndex];/ Map нельзя -> должен быть 1 элемент. Позиция (Индекс) определяет как показывается текущий элемент  {valueItemIndex + 1}/{items.length}."
+  },
+  {
+    "id": 2,
+    "topic": " DISABLED -Проверка на 1 / последний элемент в []/  disabled={firstElArticle}",
+    "text": "firstElArticle = valueItemIndex === 0 / lastElArticle = valueItemIndex === items.length - 1)"
+  },
+  {
+    "id": 3,
+    "topic": "Оновлення об'єктів -  за допомогою функції-сеттера.",
+    "text": " слід зробити копію існуючого- const updateX = () => {setValues({...values,x: values.x + 1});};"
+  },
+  {
+    "id": 4,
+    "topic": "LS/  [clicks, setClicks] = useState(() => {const savedClicks = window.localStorage.getItem ",
+    "text": "const [] = useState(0);/ const [] = useState(({return 0;});/ !!! const [clicks, setClicks] = useState((=> {const savedClicks = window.localStorage.getItem..."
+  },
+  {
+    "id": 5,
+    "topic": " ЭФФФФФЕКТЫ useEffect(() => {}, []);",
+    "text": "useEffect(() => {() => {выполняе телa при изменении состояния зависимостей.. click},[clicks]);Срабатывает каждый раз при измененнии зависимостей/ монтированиею Реагирует только на ЗАВИСИМОСТЬ"
+  },
+  {
+    "id": 6,
+    "topic": "useEffect(() => {if (clicks === 0) {return;}console.log(clicks);}, [clicks]); CКИПНУТЬ - не отображать при монтировании",
+    "text": "Создать  условия не выполнения функции= чтоб сработал return"
+  },
+  {
+    "id": 7,
+    "topic": "Sidebar",
+    "text": "const [isOpenSide,setIsOpenSidebar] = useState(true) const openSidebar = () => {setIsOpenSidebar(true);};const closeSidebar = () => {setIsOpenSidebar(false);};/ условие {isOpenSidebar && <Sidebar />}"
+  },
+  {
+    "id": 8,
+    "topic": "Sidebar + ESC / Чистка прослушивания (doc.addEvent...) = 3 функции , чистка в return - срабатывает при размонтировании",
+    "text": "useEffect(() => {const handleKeypress = (event) => {console.log(`Sidebar + addEventListener...) +  document.addEventListener('keydown', handleKeypress)  + return () => {document.removeEventListener(keydown, handleKeypress);}"
+  },
+  {
+    "id": 9,
+    "topic": "ESC + Sidebar",
+    "text": "useEffect(() => {const handleKeypress =(event)=> {if (event.key === \"Escape\") closeBtn(); console.log(`Sidebar + addEventListener(\"keypress\"...`, event.key);};document.addEventListener(\"keydown\", handleKeypress);return () => {document.removeEventListener(\"keydown\",handleKeypress);};}, [closeBtn]);"
+  },
+  {
+    "id": 10,
+    "topic": "Serverless Architecture",
+    "text": "Serverless architecture is an emerging trend in web development, where applications are built and deployed without managing servers or infrastructure. In serverless architecture, cloud providers like AWS, Azure, and Google Cloud handle the infrastructure, scaling, and maintenance of applications, allowing developers to focus on writing code and building features. Serverless technologies like AWS Lambda, Azure Functions, and Google Cloud Functions enable developers to create scalable, event-driven applications without provisioning or managing servers."
+  }
+]
