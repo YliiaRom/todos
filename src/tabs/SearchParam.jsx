@@ -1,30 +1,29 @@
 import { useSearchParams } from 'react-router-dom';
 
 export default function SearchParam() {
-  const [searchParams, setSerchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   console.log(searchParams);
   const query = searchParams.get('query') ?? '';
 
-  const changeSerchParams = e => {
+  const hendleChenge = e => {
     const newSearchParams = new URLSearchParams(searchParams);
     if (e.target.value.trim() !== '') {
-      newSearchParams.set('query', e.target.value.trim());
+      newSearchParams.set('query', e.target.value);
     } else {
       newSearchParams.delete('query');
     }
-    setSerchParams(newSearchParams);
+    setSearchParams(newSearchParams);
   };
-
   return (
     <>
       <h2>const [searchParams, setSearchParams] = useSearchParams()</h2>
       <input
+        onChange={hendleChenge}
+        value={query}
         type="text"
         name="text"
-        onChange={changeSerchParams}
+        placeholder="write..."
         autoFocus
-        required
-        placeholder="write ..."
       />
       <p>value useParams() - </p>
       {/* <p>useLocation() -{JSON.stringify({ location })}</p> */}

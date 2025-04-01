@@ -9,3 +9,53 @@
   border: 1px solid #888;
   margin-bottom: 12px;
 }
+.cube {
+  position: relative;
+  margin: 0 auto;
+  background-color: rgba(250, 235, 215, 0.321);
+  max-width: 80px;
+  height: 80px;
+  transform: rotate(-30deg) skew(25deg);
+}
+.cube p {
+  border: 1px solid #888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 80px;
+  height: 80px; */
+}
+.cube p:nth-child(2) {
+  position: absolute;
+  top: 40px;
+  left: -60px;
+  width: 100%;
+  height: 50%;
+  transform: rotate(90deg) skew(45deg);
+}
+.cube p:nth-child(3) {
+  position: absolute;
+  bottom: -40px;
+  left: -20px;
+  width: 100%;
+  height: 50%;
+  transform: skew(-45deg);
+}
+.cube p {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.clipPatchText {
+  position: absolute;
+  font-size: 0;
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#05f4f4, #e102f9);
+  color: transparent;
+  -webkit-background-clip: text;
+}

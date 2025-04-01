@@ -1,22 +1,28 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Timer() {
   const [timer, setTimer] = useState(0);
-  const timerRef = useRef();
+  const timerIntervalRef = useRef(null);
 
-  const handleChengeTimer = () => {
-    timerRef.current = setInterval(() => {
-      setTimer(timer => timer + 1);
-    }, 500);
+  const start = () => {
+    if (!timerIntervalRef.current) {
+      timerIntervalRef.current = setInterval(() => {
+        setTimer(timer => timer + 1);
+      }, 500);
+    }
   };
-  const clearIntervaTimer = () => {
-    clearInterval(timerRef.current);
+  const stop = () => {
+    clearInterval(timerIntervalRef.current);
+    timerIntervalRef.current = null;
   };
+  useEffect(() => {
+    return clearInterval(timerIntervalRef.current);
+  }, []);
   return (
     <>
       <p>{timer}</p>
-      <button onClick={handleChengeTimer}>Start</button>
-      <button onClick={clearIntervaTimer}>Stop</button>
+      <button onClick={start}>Start</button>
+      <button onClick={stop}>Stop</button>
     </>
   );
 }

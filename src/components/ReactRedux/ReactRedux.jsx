@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ReactRedux.module.css';
 import { deposit, withdraw } from './balanceSlice';
+import { shadowBalance } from '../../helpers/shadow';
 
 export default function ReactRedux() {
   const balance = useSelector(state => state.balance.value);
@@ -22,14 +23,29 @@ export default function ReactRedux() {
         </p>
         <p> &lt;Provider store=&#123;store&#125;&gt;</p>
       </div>
-      <p>{balance}</p>
-      <p>Balance</p>
-      <p>
-        <button onClick={chengeDeposit}>Deposit</button>
+      <p
+        style={{
+          textShadow: shadowBalance(),
+          fontSize: '40px',
+          fontWeight: '900',
+          color: '#fff',
+          transform: 'skew(25deg)',
+        }}
+      >
+        Balance
       </p>
-      <p>
-        <button onClick={chengeWithdraw}>Withdraw</button>
-      </p>
+      <div className={css.cube}>
+        <p>
+          <span className={css.clipPatchText}>{balance}</span>
+        </p>
+
+        <p>
+          <button onClick={chengeDeposit}>Deposit</button>
+        </p>
+        <p>
+          <button onClick={chengeWithdraw}>Withdraw</button>
+        </p>
+      </div>
     </>
   );
 }

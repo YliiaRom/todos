@@ -1,42 +1,43 @@
 import { FiSearch } from 'react-icons/fi';
 
 import style from './Form.module.css';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
 const Form = ({ onSubmit }) => {
-  const [text, setText] = useState('');
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!text.trim()) {
-      return;
-    }
-    onSubmit(text);
-    setText('');
-  };
+  const [query, setQuery] = useState('');
   //query
   // className='style.input'
   //handleSubmit
   //handleChange
-  const handleChange = e => {
-    setText(e.target.value);
+  const handleChenge = e => {
+    return setQuery(e.target.value);
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!query.trim()) {
+      return;
+    }
+    onSubmit(query);
+    setQuery('');
   };
   return (
     <>
       <p>передати параметри при onSubmit</p>
-      <form className={style.form} onSubmit={handleSubmit}>
+      <form className={style.form} onSubmit={handleChenge}>
         <button className={style.button} type="submit">
           <FiSearch size="16px" />
         </button>
 
         <input
-          onChange={handleChange}
+          onChange={handleSubmit}
+          className={style.input}
           type="text"
-          name="text"
-          input={text}
+          name="query"
+          value={query}
           autoFocus
           required
-          placeholder="write..."
-          className={style.input}
+          placeholder="write"
         />
       </form>
     </>
