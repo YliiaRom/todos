@@ -1,17 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ReactRedux.module.css';
 import { deposit, withdraw } from './balanceSlice';
-import { shadowBalance } from '../../helpers/shadow';
+import { shadowBalance, shadowTextBalance } from '../../helpers/shadow';
 
 export default function ReactRedux() {
-  const balance = useSelector(state => state.balance.value);
   const dispatch = useDispatch();
-
-  const chengeDeposit = () => {
+  const depositValue = useSelector(state => state.balance.value);
+  const handleDeposit = () => {
     dispatch(deposit(10));
   };
-  const chengeWithdraw = () => {
-    dispatch(deposit(5));
+  const handleWithdraw = () => {
+    dispatch(withdraw(5));
   };
   return (
     <>
@@ -32,18 +31,26 @@ export default function ReactRedux() {
           transform: 'skew(25deg)',
         }}
       >
-        Balance
+        Balance {depositValue}
       </p>
       <div className={css.cube}>
         <p>
-          <span className={css.clipPatchText}>{balance}</span>
+          <span
+            className={css.clipPatchText}
+            style={{
+              display: 'inline-block',
+              textShadow: shadowTextBalance(),
+            }}
+          >
+            {depositValue}
+          </span>
         </p>
 
         <p>
-          <button onClick={chengeDeposit}>Deposit</button>
+          <button onClick={handleDeposit}>Deposit</button>
         </p>
         <p>
-          <button onClick={chengeWithdraw}>Withdraw</button>
+          <button onClick={handleWithdraw}>Withdraw</button>
         </p>
       </div>
     </>

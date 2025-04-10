@@ -1,0 +1,4 @@
+export const todos = [
+  { id: '1', text: 'Practice more' },
+  { id: '2', text: 'Get all tasks done on time' },
+];

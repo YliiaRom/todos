@@ -10,15 +10,14 @@ const Form = ({ onSubmit }) => {
   //handleSubmit
   //handleChange
   const [query, setQuery] = useState('');
-
-  const handleInput = event => {
-    return setQuery(event.target.value);
+  const handleInput = e => {
+    setQuery(e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     if (!query.trim()) {
-      return alert(' NO valide velue! ');
+      return;
     }
     onSubmit(query);
     setQuery('');

@@ -1,16 +1,15 @@
 import { useRef } from 'react';
 
 const RafBasics = () => {
-  const inputRaf = useRef();
+  const inputRef = useRef();
   const setInput = () => {
-    console.log(inputRaf);
-    inputRaf.current.focus();
+    inputRef.current.focus();
   };
   return (
     <>
       <div>
         <h3>useRef= link + autoFocus</h3>
-        <input type="text" name="text" ref={inputRaf} />
+        <input type="text" name="text" ref={inputRef} />
         <button onClick={setInput}>Clik = Focus Input</button>
       </div>
     </>

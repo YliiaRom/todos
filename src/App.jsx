@@ -15,6 +15,7 @@ import { createContext } from 'react';
 import Redux from './tabs/Redux';
 import StyleBox from './components/StyleBox/StyleBox';
 import Filter from './tabs/Filter';
+import SideBar from './tabs/SideBar';
 
 export const LangContext = createContext();
 
@@ -31,6 +32,7 @@ export const App = () => {
               <Tab>Player</Tab>
               <Tab>Timer</Tab>
               <Tab>Filter</Tab>
+              <Tab>SideBar</Tab>
               <Tab>AppHeader</Tab>
               <Tab>LangMassage</Tab>
               <Tab>SearchParam</Tab>
@@ -55,6 +57,9 @@ export const App = () => {
             </TabPanel>
             <TabPanel>
               <Filter />
+            </TabPanel>
+            <TabPanel>
+              <SideBar />
             </TabPanel>
             <TabPanel>
               <AppHeader />

@@ -7,16 +7,16 @@ const slice = createSlice({
   },
   reducers: {
     deposit: (state, action) => {
-      state.value += action.payload;
+      state.value = state.value + action.payload;
     },
     withdraw: (state, action) => {
-      state.value - +action.payload;
+      state.value = state.value - action.payload;
     },
   },
 });
-export const { deposit, withdraw } = slice.actions;
 export default slice.reducer;
 
+export const { deposit, withdraw } = slice.actions;
 // import { createSlice } from '@reduxjs/toolkit';
 
 // const balanceSlice = createSlice({

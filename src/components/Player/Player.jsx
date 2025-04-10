@@ -2,22 +2,22 @@ import { useRef } from 'react';
 
 export default function Player() {
   const audioRef = useRef();
+
   const start = () => {
     audioRef.current.play();
   };
-  const stop = () => {
+  const pause = () => {
     audioRef.current.pause();
   };
   return (
     <>
       <audio
-        ref={audioRef}
         type="audio/mp3"
+        ref={audioRef}
         src="https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/master/sample.mp3"
       ></audio>
-
-      <button onClick={start}>Play</button>
-      <button onClick={stop}>Stop</button>
+      <button onClick={start}>Start</button>
+      <button onClick={pause}>Pause</button>
     </>
   );
 }
