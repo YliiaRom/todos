@@ -12,14 +12,13 @@ export default function Timer() {
       setTimer(timer => timer + 1);
     }, 500);
   };
-
   const stop = () => {
     clearInterval(timerRef.current);
     timerRef.current = null;
   };
   return (
     <>
-      <p> timer : {timer}</p>
+      <p>timer{timer}</p>
       <button onClick={start}>start</button>
       <button onClick={stop}>stop</button>
     </>

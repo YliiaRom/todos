@@ -2,7 +2,6 @@ import { useRef } from 'react';
 
 export default function Player() {
   const audioRef = useRef();
-
   const start = () => {
     audioRef.current.play();
   };
@@ -13,11 +12,11 @@ export default function Player() {
     <>
       <audio
         type="audio/mp3"
-        ref={audioRef}
         src="https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/master/sample.mp3"
+        ref={audioRef}
       ></audio>
-      <button onClick={start}>Start</button>
-      <button onClick={pause}>Pause</button>
+      <button onClick={start}>start</button>
+      <button onClick={pause}>stop</button>
     </>
   );
 }

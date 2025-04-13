@@ -4,19 +4,19 @@ import taskData from '../../src/json/tasks';
 export default function Filter() {
   //query/task
   //handleChange/visibleTask/deleteTask
-  const [tasks, setTasks] = useState(taskData);
   const [query, setQuery] = useState('');
-
+  const [tasks, setTasks] = useState(taskData);
   const handleInput = e => {
     setQuery(e.target.value);
   };
-  const visibleTask = tasks.filter(el =>
+
+  const visibleCard = tasks.filter(el =>
     el.topic.toLowerCase().includes(query.toLowerCase())
   );
-  const delTask = id => {
-    setTasks(() => tasks.filter(el => el.id !== id));
-  };
 
+  const delTask = id => {
+    setTasks(prevTask => prevTask.filter(el => el.id !== id));
+  };
   return (
     <>
       <p> Показать только те taskData, что включают введённое значение</p>
@@ -27,7 +27,7 @@ export default function Filter() {
         placeholder="write ..."
       />
       <ul>
-        {visibleTask.map(item => {
+        {visibleCard.map(item => {
           return (
             <li
               key={item.id}

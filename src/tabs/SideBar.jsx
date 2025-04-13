@@ -2,30 +2,31 @@ import { useEffect, useState } from 'react';
 
 export default function SideBar() {
   //isOpenSideBar/handleOpen/handleClose/handleKeypress/addEventListener
-  const [openSidebar, setIsOpenSideBar] = useState(false);
-
-  const open = () => {
-    setIsOpenSideBar(true);
+  const [openSideBar, setOpenSideBar] = useState(false);
+  const openTheSiderBar = () => {
+    setOpenSideBar(true);
   };
 
-  const close = () => {
-    setIsOpenSideBar(false);
+  const closeSideBar = () => {
+    setOpenSideBar(false);
   };
-  const closeWidthKeySB = () => {
-    setIsOpenSideBar(false);
+
+  const closeSideBarWithKeypress = () => {
+    setOpenSideBar(false);
   };
 
   useEffect(() => {
     const handleKeypress = e => {
       if (e.key === 'Escape') {
-        closeWidthKeySB();
+        closeSideBarWithKeypress();
       }
     };
     document.addEventListener('keydown', handleKeypress);
+
     return () => {
       document.removeEventListener('keydown', handleKeypress);
     };
-  }, [closeWidthKeySB]);
+  }, [closeSideBarWithKeypress]);
   return (
     <>
       <p>
@@ -33,8 +34,8 @@ export default function SideBar() {
         document.addEventListener('keydown', handleKeypress); <br /> return ()
         =&gt; &#123; document.removeEventListener('keydown', handleKeypress);
       </p>
-      <button onClick={open}>is open Sidebar</button>
-      {openSidebar && (
+      <button onClick={openTheSiderBar}>is open Sidebar</button>
+      {openSideBar && (
         <div
           style={{
             position: 'fixed',
@@ -47,7 +48,7 @@ export default function SideBar() {
           }}
         >
           <h2>SideBar</h2>
-          <button onClick={close}>Close</button>
+          <button onClick={closeSideBar}>Close</button>
         </div>
       )}
     </>
